@@ -63,7 +63,7 @@ export default function Home() {
       </nav>
 
       <header id="start" style={{ background: '#141c26', paddingTop: 66 }}>
-        <img src="/emotionheader.jpeg" alt="Fassade des Elbe-Hauses mit Schriftzug über der Tür" style={{ display: 'block', width: '100%', height: 'auto' }} />
+        <img src="./emotionheader.jpeg" alt="Fassade des Elbe-Hauses mit Schriftzug über der Tür" style={{ display: 'block', width: '100%', height: 'auto' }} />
         <div className="fade-up" style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 48px 72px' }}>
           <p style={{ margin: '0 0 16px', color: '#e8d9b8', fontSize: 14, fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase' }}>Große Altefähre 16 · Lübecker Altstadt · Anno 1884</p>
           <h1 style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(48px, 7vw, 92px)', fontWeight: 500, lineHeight: 1.05, color: '#faf8f4' }}>Ihr neues Zuhause im Herzen der Altstadt</h1>
