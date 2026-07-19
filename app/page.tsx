@@ -29,7 +29,7 @@ const facts = [
   { value: '2014', label: 'Kernsanierung' },
 ];
 
-const h2: React.CSSProperties = { margin: 0, fontFamily: "'Cormorant Garamond', serif", fontSize: 44, fontWeight: 500, lineHeight: 1.15 };
+const h2: React.CSSProperties = { margin: 0, fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(32px, 5.5vw, 44px)', fontWeight: 500, lineHeight: 1.15 };
 const kicker: React.CSSProperties = { margin: '0 0 12px', color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.26em', textTransform: 'uppercase' };
 
 export default function Home() {
@@ -53,9 +53,9 @@ export default function Home() {
 
   return (
     <div>
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24, padding: '18px 48px', background: 'rgba(250,248,244,0.92)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(29,39,51,0.08)' }}>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' as const, padding: '12px clamp(16px, 4vw, 48px)', background: 'rgba(250,248,244,0.92)', backdropFilter: 'blur(12px)', borderBottom: '1px solid rgba(29,39,51,0.08)' }}>
         <a href="#start" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 26, fontWeight: 600, letterSpacing: '0.02em', color: '#1d2733' }}>ELBE<span style={{ color: ACCENT }}>-</span>HAUS</a>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 'clamp(12px, 2.5vw, 32px)' }}>
           <a className="nav-link" href="#haus">Das Haus</a>
           <a className="nav-link" href="#grundrisse">Grundrisse</a>
           <a className="nav-link" href="#bilder">Bilder</a>
@@ -66,7 +66,7 @@ export default function Home() {
 
       <header id="start" style={{ background: '#141c26', paddingTop: 66 }}>
         <img src="./emotionheader.jpeg" alt="Fassade des Elbe-Hauses mit Schriftzug über der Tür" style={{ display: 'block', width: '100%', height: 'auto' }} />
-        <div className="fade-up" style={{ maxWidth: 1180, margin: '0 auto', padding: '56px 48px 72px' }}>
+        <div className="fade-up" style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(32px, 6vw, 56px) clamp(20px, 5vw, 48px) clamp(40px, 7vw, 72px)' }}>
           <p style={{ margin: '0 0 16px', color: '#e8d9b8', fontSize: 14, fontWeight: 600, letterSpacing: '0.28em', textTransform: 'uppercase' }}>Große Altefähre 16 · Lübecker Altstadt · Anno 1884</p>
           <h1 style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(48px, 7vw, 92px)', fontWeight: 500, lineHeight: 1.05, color: '#faf8f4' }}>Ihr neues Zuhause im Herzen der Altstadt</h1>
           <p style={{ margin: '24px 0 0', maxWidth: 640, color: 'rgba(250,248,244,0.85)', fontSize: 19, fontWeight: 300 }}>Ein hanseatisches Kaufmannshaus von 1884 – aufwendig saniert, mit hohen, lichten Räumen und dem Flair der Lübecker Hafenkante.</p>
@@ -74,8 +74,8 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="haus" style={{ maxWidth: 1180, margin: '0 auto', padding: '120px 48px 40px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 72, alignItems: 'start' }}>
+      <section id="haus" style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(64px, 10vw, 120px) clamp(20px, 5vw, 48px) 40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(28px, 5vw, 72px)', alignItems: 'start' }}>
           <div>
             <p style={kicker}>Herzlich willkommen</p>
             <h2 style={h2}>Ein Kaufmannshaus mit Geschichte</h2>
@@ -87,8 +87,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section style={{ maxWidth: 1180, margin: '0 auto', padding: 48 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'rgba(29,39,51,0.12)', border: '1px solid rgba(29,39,51,0.12)' }}>
+      <section style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(20px, 5vw, 48px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))', gap: 1, background: 'rgba(29,39,51,0.12)', border: '1px solid rgba(29,39,51,0.12)' }}>
           {facts.map(f => (
             <div key={f.label} style={{ background: '#faf8f4', padding: '32px 28px' }}>
               <p style={{ margin: 0, fontFamily: "'Cormorant Garamond', serif", fontSize: 42, fontWeight: 600, color: '#1d2733', lineHeight: 1 }}>{f.value}</p>
@@ -99,7 +99,7 @@ export default function Home() {
       </section>
 
       <section style={{ background: '#1d2733', color: '#e9e5dc', marginTop: 80 }}>
-        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '110px 48px', display: 'grid', gridTemplateColumns: '1.15fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 6vw, 80px)', alignItems: 'center' }}>
           <div>
             <p style={{ ...kicker, color: '#d9b98a' }}>Hausbeschreibung</p>
             <h2 style={{ ...h2, marginBottom: 28, color: '#faf8f4' }}>Vollständig saniert, energieeffizient, modern</h2>
@@ -116,11 +116,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="grundrisse" style={{ maxWidth: 1180, margin: '0 auto', padding: '120px 48px' }}>
+      <section id="grundrisse" style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(64px, 10vw, 120px) clamp(20px, 5vw, 48px)' }}>
         <p style={kicker}>Grundrisse</p>
         <h2 style={{ ...h2, marginBottom: 16 }}>Drei Ebenen im Überblick</h2>
         <p style={{ margin: '0 0 48px', maxWidth: 560, color: '#3a4553' }}>Alle Grundrisse stehen Ihnen auch als PDF zum Download zur Verfügung.</p>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 32 }}>
           {plans.map((p, i) => (
             <div key={p.title} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               <div style={{ background: '#fff', border: '1px solid rgba(29,39,51,0.12)', padding: 20, cursor: 'zoom-in' }} onClick={() => setLightbox(eg.length + og.length + aussen.length + i)}>
@@ -135,14 +135,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="bilder" style={{ background: '#f1ede4', padding: '110px 0' }}>
-        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '0 48px' }}>
+      <section id="bilder" style={{ background: '#f1ede4', padding: 'clamp(64px, 9vw, 110px) 0' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '0 clamp(20px, 5vw, 48px)' }}>
           <p style={kicker}>Bilder</p>
           <h2 style={{ ...h2, marginBottom: 48 }}>Ein Rundgang durch das Elbe-Haus</h2>
           {galleries.map(g => (
             <div key={g.title} style={{ marginBottom: 56 }}>
               <h3 style={{ margin: '0 0 20px', fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: '#1d2733' }}>{g.title}</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 14 }}>
                 {g.items.map(im => (
                   <div key={im.src} className="gallery-tile" onClick={() => setLightbox(all.findIndex(a => a.src === im.src))}>
                     <img className={im.rot ? 'gallery-img rot' : 'gallery-img'} src={im.src} alt={im.alt} loading="lazy" />
@@ -163,8 +163,8 @@ export default function Home() {
         </div>
       )}
 
-      <section id="lage" style={{ maxWidth: 1180, margin: '0 auto', padding: '120px 48px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 64, alignItems: 'center' }}>
+      <section id="lage" style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(64px, 10vw, 120px) clamp(20px, 5vw, 48px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
           <div>
             <p style={kicker}>Lage</p>
             <h2 style={{ ...h2, marginBottom: 24 }}>An der Lübecker Hafenkante</h2>
@@ -179,7 +179,7 @@ export default function Home() {
       </section>
 
       <section id="kontakt" style={{ background: '#1d2733', color: '#e9e5dc' }}>
-        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '110px 48px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto', padding: 'clamp(64px, 9vw, 110px) clamp(20px, 5vw, 48px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(32px, 6vw, 80px)' }}>
           <div>
             <p style={{ ...kicker, color: '#d9b98a' }}>Kontakt</p>
             <h2 style={{ ...h2, marginBottom: 24, color: '#faf8f4' }}>Wir freuen uns auf Ihre Nachricht</h2>
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       <footer style={{ background: '#141c26', color: 'rgba(233,229,220,0.6)', fontSize: 14 }}>
-        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
+        <div style={{ maxWidth: 1180, margin: '0 auto', padding: '24px clamp(20px, 5vw, 48px)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}>
           <p style={{ margin: 0 }}>© Matthias Dütschke / Elbe-Haus · Große Altefähre 16 · 23552 Lübeck · Besucher: {visits === null ? '' : visits.toLocaleString('de-DE')}</p>
           <div style={{ display: 'flex', gap: 24 }}>
             <a href="mailto:info@elbehaus-luebeck.de" style={{ color: 'rgba(233,229,220,0.6)' }}>info@elbehaus-luebeck.de</a>

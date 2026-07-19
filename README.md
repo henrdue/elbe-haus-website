@@ -19,22 +19,12 @@ git remote add origin https://github.com/henrdue/elbe-haus-website.git
 git push -u origin main
 ```
 
-## GitHub Pages (Deploy from a branch)
-1. In `next.config.mjs` die Konstante `repo` auf den Namen Ihres Repositories setzen.
-2. Bauen und den statischen Export in den Ordner `docs/` legen:
-   ```bash
-   npm run build
-   # Windows:
-   xcopy /E /I out docs
-   type nul > docs\.nojekyll
-   # Mac/Linux:
-   cp -r out docs && touch docs/.nojekyll
-   ```
-3. `docs/` committen und pushen.
-4. Auf GitHub: Settings → Pages → Source: "Deploy from a branch" → Branch `main`, Ordner `/docs` → Save.
-5. Seite erscheint unter `https://<nutzername>.github.io/<repo>/`. Nach jeder Änderung Schritt 2–3 wiederholen.
+## GitHub Pages (automatisch via Actions)
+1. Quellcode committen und auf `main` pushen — fertig. Der Workflow `.github/workflows/deploy.yml` baut und veröffentlicht automatisch.
+2. Einmalig auf GitHub: Settings → Pages → Source: "GitHub Actions" wählen.
+3. Seite läuft unter `https://henrdue.github.io/elbe-haus-website/`.
 
-Die Datei `docs/.nojekyll` ist wichtig — ohne sie ignoriert GitHub Pages den `_next`-Ordner.
+Ein lokaler `docs/`-Ordner wird nicht mehr benötigt (falls vorhanden: löschen). Der Repo-Name für die Pfade steht in `next.config.mjs` (`repo`-Konstante).
 
 ## Hinweise
 - **Bilder:** Alle Fotos und Grundrisse liegen lokal unter `public/images/`, das Hero-Bild unter `public/emotionheader.jpeg`. Die 3 Grundriss-PDFs liegen unter `public/pdf/`.
