@@ -203,7 +203,7 @@ export default function Home() {
           <p style={{ margin: 0 }}>© Matthias Dütschke / Elbe-Haus · Große Altefähre 16 · 23552 Lübeck · Besucher: {visits === null ? '' : visits.toLocaleString('de-DE')}</p>
           <div style={{ display: 'flex', gap: 24 }}>
             <a href="mailto:info@elbehaus-luebeck.de" style={{ color: 'rgba(233,229,220,0.6)' }}>info@elbehaus-luebeck.de</a>
-            <a href="https://www.elbehaus-luebeck.de/impressum/" target="_blank" rel="noopener" style={{ color: 'rgba(233,229,220,0.6)' }}>Impressum</a>
+            <a href="./impressum/" style={{ color: 'rgba(233,229,220,0.6)' }}>Impressum</a>
           </div>
         </div>
       </footer>
